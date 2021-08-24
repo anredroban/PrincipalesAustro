@@ -1,0 +1,158 @@
+.panel-heading .btn-clickable
+			{
+				display: inline-block;
+				margin-top: -25px;
+				font-size: 15px;
+				margin-right: -10px;
+				padding: 4px 10px;
+				border-radius: 4px				
+			}
+			 
+			 
+			.panel-heading span
+			{
+				margin-top: -23px;
+				font-size: 15px;
+				margin-right: -9px;
+			}
+
+			 div.container div.row div.col-md-6 div.col-lg-12 div.panel div.panel-heading h3.panel-title
+			{
+				font-size: 20px;
+				font-weight: 700pt;				
+			}
+			
+			
+/* 			Botones para los portlets */
+			.btn-red{
+				background-color: #FF0000;
+			}
+			
+			.btn-green{
+				background-color: #00FF00;
+			}
+			
+			.btn-blue{
+				background-color: #0000FF;
+			}
+			
+			.btn-yellow{
+				background-color: #FFF448;
+			}
+			
+			.btn-cyan{
+				background-color: #00FFFF;
+			}
+			
+			.btn-blue-u{
+				background-color: #337AB7;
+			}
+
+            .btn-rgb{
+				background-color:  #17a589;
+            }
+			
+			.btn-lila{
+				background-color: #CA7AF5;
+			}
+			
+			.btn-green2{
+				background-color: #74B749;
+			}
+			
+			
+			
+/* 			Colores de los portlets */
+			.panel-border-red{
+				border-color: #FF0000;				
+			}
+			.panel-body-red{
+				background-color: #FF0000;
+			}
+			
+			.panel-border-red1{
+				border-color: #D9534F;				
+			}
+			.panel-body-red1{
+				background-color: #D9534F;
+			}
+			
+			.panel-border-green{
+				border-color: #00FF00;				
+			}
+			.panel-body-green{
+				background-color: #00FF00;
+			}
+			.panel-border-green1{
+				border-color: #00FFA2;				
+			}
+			.panel-body-green1{
+				background-color: #00FFA2;
+			}
+			
+			.panel-border-blue{
+				border-color: #0000FF;				
+			}
+			.panel-body-blue{
+				background-color: #0000FF;
+			}
+			.panel-border-celeste{
+				border-color: #0099FF;				
+			}
+			.panel-body-celeste{
+				background-color: #0099FF;
+			}
+			.panel-border-yellow{
+				border-color: #FFF448;				
+			}
+			.panel-body-yellow{
+				background-color: #FFF448;
+			}
+			
+			.panel-border-cyan{
+				border-color: #00FFFF;				
+			}
+			.panel-body-cyan{
+				background-color: #00FFFF;
+			}
+			
+			.panel-border-blue-u{
+				border-color: #337AB7;				
+			}
+			.panel-body-blue-u{
+				background-color: #337AB7;
+			}
+			.panel-border-orange{
+				border-color: #FE6C16;				
+			}
+			.panel-body-orange{
+				background-color: #FE6C16;
+			}
+			.panel-border-black{
+				border-color: #222222;				
+			}
+			.panel-body-black{
+				background-color: #222222;
+			}
+			.panel-border-lila{
+				border-color: #CA7AF5;				
+			}
+			.panel-body-lila{
+				background-color: #CA7AF5;
+			}			
+			.panel-border-green2{
+				border-color: #74B749;				
+			}
+			.panel-body-green2{
+				background-color: #74B749;
+			}
+			.panel-body-cyan1{
+				background-color: #e97400;
+			}
+
+            .panel-body-rgb{
+	            background-color: #17a589;
+			}
+            .panel-border-rgb{
+	            border-color: #17a589;
+            }

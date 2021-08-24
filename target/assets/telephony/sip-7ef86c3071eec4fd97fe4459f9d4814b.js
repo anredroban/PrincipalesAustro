@@ -1,0 +1,1 @@
+var configuration={ws_servers:"ws://192.168.1.171:8088/asterisk/ws",uri:"sip:100@192.168.1.171",password:"abc12345"};var ua=new JsSIP.UA(configuration);ua.start()
