@@ -157,6 +157,17 @@
 							</a>
 						</li>
 					</g:if>
+					<g:if test="${Util.checkAccess(session.user.usuario, '/reportes/bitacoraPlanificacion')}">
+						<li class="nav-reports
+						<g:if test="${actionName == "bitacoraPlanificacion"}">
+							nav-active subnav-expanded
+						</g:if>
+						">
+							<a href="${createLink(uri: '/reportes/bitacoraPlanificacion')}">
+								<i class="fa fa-fw fa-table"></i><span class="menu-name">&nbsp;Bitácora Planificación</span>
+							</a>
+						</li>
+					</g:if>
 					<g:if test="${Util.checkAccess(session.user.usuario, '/reportes/bitacoraGestion')}">
 						<li class="nav-reports
 							<g:if test="${actionName == "bitacoraGestion"}">

@@ -208,8 +208,8 @@ class Clientes {
 	String valorPasivo
 	String montoIngresoMensualTotal
 	String montoEgresoMensualTotal
-
-
+	String guia_courier
+	String cierre_ciclo
 
 	static constraints = {
 		tipoProducto nullable: true
@@ -269,6 +269,7 @@ class Clientes {
 		gastosBasicos nullable: true
 		fechaEntrega nullable: true
 		tipoMarca nullable: true
+		guia_courier nullable: true
 
 		tipoIdentificacion nullable: true
 		apellido1 nullable: true
@@ -404,6 +405,7 @@ class Clientes {
 		valorPasivo nullable: true
 		montoIngresoMensualTotal nullable: true
 		montoEgresoMensualTotal nullable: true
+		cierre_ciclo nullable: true
 
 	}
 	
