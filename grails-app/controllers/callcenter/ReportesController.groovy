@@ -295,7 +295,7 @@ class ReportesController {
                 campos[3] = cli.nombre
                 campos[4] = cli.provinciaDomicilio
                 campos[5] = cli.ciudadDomicilio
-                campos[6] = cli.sectorDomicilio
+                campos[6] = Parroquia.findById(cli.sectorDomicilio.toLong()).nombre
                 campos[7] = cli.callePrincipalNumeracionDomicilio
                 campos[8] = cli.callePrincipalNumeracionDomicilio
                 campos[9] = cli.calleTransversalDomicilio
@@ -303,7 +303,7 @@ class ReportesController {
                 campos[11] = cli.ciudadDomicilio + ' ' + cli.sectorDomicilio + ' ' + cli.callePrincipalNumeracionDomicilio + ' ' + cli.calleTransversalDomicilio + ' ' + cli.referenciaDomicilio
                 campos[12] = cli.provinciaTrabajo
                 campos[13] = cli.ciudadTrabajo
-                campos[14] = cli.sectorTrabajo
+                campos[14] = Parroquia.findById(cli.sectorTrabajo.toLong()).nombre
                 campos[15] = cli.callePrincipalNumeracionTrabajo
                 campos[16] = cli.callePrincipalNumeracionTrabajo
                 campos[17] = cli.calleTransversalTrabajo
@@ -378,9 +378,22 @@ class ReportesController {
                                 "ORIGEN INGRESOS/ ", "RANGO INGRESOS MES/ ", "PATRIMONIO/ ", "TIPO VIVIENDA/ ", "VALOR VIVIENDA/ ", "FECHA INICIO RESIDENCIA/ ", "RELACION LABORAL/ ", "FCH INI TRAB ACTUAL/ ",
                                 "FCH INI TRAB ANTERIOR/ ", "FCH FIN TRAB ANTERIOR/ ", "CARGAS FAMILIARES/ ", "BIN PLASTICO/ ", "AFINIDAD/ ", "CUPO/ ", "NOMBRE IMPRESO/ ", "VENDEDOR/ ", "TIPO ID REF PERSONA/ ", "NUMERO ID REF PERSONAL/ ", "APELLIDO1 REF PERSONAL/ ",
                                 "APELLIDO2 REF PERSONAL/ ", "NOMBRE1 REF PERSONAL/ ", "NOMBRE2 REF PERSONAL/ ", "DIRECCION REF PERSONAL/ ", "TELEFONO REF PERSONAL/ ", "PARENTESCO REF PERSONAL/ ", "INDICADOR PRINC/ADIC/CONV/ ", "TIPO ID PRINCIPAL/ ", "NUM ID PRINCIPAL/ ",
-                                "BIN PLASTICO PRINC/ ", "PARENTESCO/ ", "TIPO ID CONYUGE/ ", "NUMERO ID CONYUGE/ ", "APELLIDO1 CONYUGE/ ", "APELLIDO2 CONYUGE/ ", "NOMBRE1 CONYUGE/ ", "NOMBRE2 CONYUGE/ ", "PAIS CONYUGE/ ", "GENERO CONYUGE/ ", "FECHA DE NACIMIENTO CONYUGE/ ",
-                                "ESTADO CIVIL CONYUGE/ ", "PAIS DE NACIMIENTO CONYUGE/ ", 'CODCIUDAD DE DOMICILIO/ ',	'BARRIO DE DOMICILIO/ ',	'SECTOR DE DOMICILIO/ ',	'CODCIUDAD DE TRABAJO/ ',	'PARROQUIA DE TRABAJO/ ',	'SECTOR DE TRABAJO/ ',	'LUGAR DE TRABAJO/ ',	'CCARGOPERSONA/ ',
-                                'MONTOMENSUALACTIVO/ ',	'MONTOMENSUALPASIVO/ ',	'MONTOMENSUALINGRESO/ ',	'MONTOMENSUALGASTOMENSUAL/ ',	'CCIUDADREFERENCIA/ ', "NOMBRE VENDEDOR/ ", "FECHA GESTION/ ","UPGRADE/ "]
+                                "BIN PLASTICO PRINC/ ", "PARENTESCO/ ", "TIPO ID CONYUGE/ ", "NUMERO IDCONYUGE/ ", "APELLIDO1CONYUGE/ ", "APELLIDO2CONYUGE/ ", "NOMBRE1CONYUGE/ ", "NOMBRE2CONYUGE/ ", "PAIS CONYUGE/ ", "GENERO CONYUGE/ ", "FECHA DE NACIMIENTOCONYUGE/ ",
+                                "ESTADO CIVIL CONYUGE/ ", "PAIS DE NACIMIENTOCONYUGE/ ",
+                                'CODCIUDAD DE DOMICILIO/ ',
+                                'CPARROQUIA DE DOMICILIO/ ',
+                                'SECTOR DE DOMICILIO/ ',
+                                'CODCIUDAD DE TRABAJO/ ',
+                                'PARROQUIA DE TRABAJO/ ',
+                                'SECTOR DE TRABAJO/ ',
+                                'LUGAR DE TRABAJO/ ',
+                                'CARGOPERSONA/ ',
+                                'OCUPACIONPERSONA/ ',
+                                'MONTOMENSUALACTIVO/ ',
+                                'MONTOMENSUALPASIVO/ ',
+                                'MONTOMENSUALINGRESO/ ',
+                                'MONTOMENSUALGASTOMENSUAL/ ',
+                                'CCIUDADREFERENCIA/ ', "NOMBRE VENDEDOR/ ", "FECHA GESTION/ ","UPGRADE/ "]
             ExcelUtils.addCells(headers, sheet, 0, Colour.GRAY_25, Alignment.LEFT, VerticalAlignment.CENTRE, null, Border.ALL, BorderLineStyle.HAIR)
             for (int i = 0; i < principalesList.size(); i++) {
                 String[] campos = new String[headers.length]
@@ -1366,26 +1379,26 @@ class ReportesController {
                     valor = valor + 1
                 }
                 campos[66] = codCiudadDomicilio
-                String barrioDomicilio = cli.barrioDomicilio
+                String codParroquiaDomicilio = cli.codigoParroquia
                 for (int l = 0; l < valor; l++) {
-                    if (barrioDomicilio == "") {
-                        barrioDomicilio = "                                                  "
+                    if (codParroquiaDomicilio == "") {
+                        codParroquiaDomicilio = "  "
                     }
-                    for (int k = 0; k < barrioDomicilio.length(); k++) {
-                        if (barrioDomicilio.length() < 50) {
-                            barrioDomicilio = barrioDomicilio + " "
+                    for (int k = 0; k < codParroquiaDomicilio.length(); k++) {
+                        if (codParroquiaDomicilio.length() < 2) {
+                            codParroquiaDomicilio = codParroquiaDomicilio + " "
                         }else {
-                            if (barrioDomicilio.length() > 50) {
-                                barrioDomicilio = "EXCEDE DE LONGITUD"
+                            if (codParroquiaDomicilio.length() > 2) {
+                                codParroquiaDomicilio = "EXCEDE DE LONGITUD"
                             }
                         }
                     }
-                    if (barrioDomicilio.length() == 50 || barrioDomicilio.length() > 50) {
+                    if (codParroquiaDomicilio.length() == 2 || codParroquiaDomicilio.length() > 2) {
                         break;
                     }
                     valor = valor + 1
                 }
-                campos[67] = barrioDomicilio
+                campos[67] = codParroquiaDomicilio
                 String sectorDomicilio = Parroquia.findById(cli.sectorDomicilio.toString().toLong()).nombre
                 for (int l = 0; l < valor; l++) {
                     if (sectorDomicilio == "") {
@@ -1431,18 +1444,18 @@ class ReportesController {
                 String codigoParroquiaTrabajo = cli.codigoParroquiaTrabajo
                 for (int l = 0; l < valor; l++) {
                     if (codigoParroquiaTrabajo == "") {
-                        codigoParroquiaTrabajo = "      "
+                        codigoParroquiaTrabajo = "  "
                     }
                     for (int k = 0; k < codigoParroquiaTrabajo.length(); k++) {
-                        if (codigoParroquiaTrabajo.length() < 6) {
+                        if (codigoParroquiaTrabajo.length() < 2) {
                             codigoParroquiaTrabajo = codigoParroquiaTrabajo + " "
                         }else {
-                            if (codigoParroquiaTrabajo.length() > 6) {
+                            if (codigoParroquiaTrabajo.length() > 2) {
                                 codigoParroquiaTrabajo = "EXCEDE DE LONGITUD"
                             }
                         }
                     }
-                    if (codigoParroquiaTrabajo.length() == 6 || codigoParroquiaTrabajo.length() > 6) {
+                    if (codigoParroquiaTrabajo.length() == 2 || codigoParroquiaTrabajo.length() > 2) {
                         break;
                     }
                     valor = valor + 1
@@ -1491,26 +1504,47 @@ class ReportesController {
                 }
                 campos[72] = lugarTrabajo
 
-                String codigoProfesion = cli.profesion
+                String cargoPersona = cli.cargo
                 for (int l = 0; l < valor; l++) {
-                    if (codigoProfesion == "") {
-                        codigoProfesion = "      "
+                    if (cargoPersona == "") {
+                        cargoPersona = "    "
                     }
-                    for (int k = 0; k < codigoProfesion.length(); k++) {
-                        if (codigoProfesion.length() < 6) {
-                            codigoProfesion = codigoProfesion + " "
+                    for (int k = 0; k < cargoPersona.length(); k++) {
+                        if (cargoPersona.length() < 4) {
+                            cargoPersona = cargoPersona + " "
                         }else {
-                            if (codigoProfesion.length() > 6) {
-                                codigoProfesion = "EXCEDE DE LONGITUD"
+                            if (cargoPersona.length() > 4) {
+                                cargoPersona = "EXCEDE DE LONGITUD"
                             }
                         }
                     }
-                    if (codigoProfesion.length() == 6 || codigoProfesion.length() > 6) {
+                    if (cargoPersona.length() == 4 || cargoPersona.length() > 4) {
                         break;
                     }
                     valor = valor + 1
                 }
-                campos[73] = codigoProfesion
+                campos[73] = cargoPersona
+
+                String ocupacionPersona = cli.ocupacion
+                for (int l = 0; l < valor; l++) {
+                    if (ocupacionPersona == "") {
+                        ocupacionPersona = "    "
+                    }
+                    for (int k = 0; k < ocupacionPersona.length(); k++) {
+                        if (ocupacionPersona.length() < 4) {
+                            ocupacionPersona = ocupacionPersona + " "
+                        }else {
+                            if (ocupacionPersona.length() > 4) {
+                                ocupacionPersona = "EXCEDE DE LONGITUD"
+                            }
+                        }
+                    }
+                    if (ocupacionPersona.length() == 4 || ocupacionPersona.length() > 4) {
+                        break;
+                    }
+                    valor = valor + 1
+                }
+                campos[74] = ocupacionPersona
 
                 String montoMensualActivo = cli.valorActivo
                 for (int l = 0; l < valor; l++) {
@@ -1531,7 +1565,7 @@ class ReportesController {
                     }
                     valor = valor + 1
                 }
-                campos[74] = montoMensualActivo
+                campos[75] = montoMensualActivo
 
                 String montoMensualPasivo = cli.valorPasivo
                 for (int l = 0; l < valor; l++) {
@@ -1552,7 +1586,7 @@ class ReportesController {
                     }
                     valor = valor + 1
                 }
-                campos[75] = montoMensualPasivo
+                campos[76] = montoMensualPasivo
 
                 String montoMensualIngresos = calculaValores('INGRESOS', cli.id)
                 for (int l = 0; l < valor; l++) {
@@ -1573,7 +1607,7 @@ class ReportesController {
                     }
                     valor = valor + 1
                 }
-                campos[76] = montoMensualIngresos
+                campos[77] = montoMensualIngresos
 
                 String montoMensualEgresos = calculaValores('EGRESOS', cli.id)
                 for (int l = 0; l < valor; l++) {
@@ -1594,7 +1628,7 @@ class ReportesController {
                     }
                     valor = valor + 1
                 }
-                campos[77] = montoMensualEgresos
+                campos[78] = montoMensualEgresos
 
                 String codigoCiudadReferencia = cli.codigoCiudadReferencia
                 for (int l = 0; l < valor; l++) {
@@ -1615,13 +1649,13 @@ class ReportesController {
                     }
                     valor = valor + 1
                 }
-                campos[78] = codigoCiudadReferencia
+                campos[79] = codigoCiudadReferencia
 
                 /***Inicio de nuevos cambios en la generación del TXT**/
                 /***Campos que son libres y despues de la trama**/
-                campos[79] = cli.nombreVendedor
-                campos[80] = cli.fechaGestion.toString()
-                campos[81] = cli.aceptaCambioProducto
+                campos[80] = cli.nombreVendedor
+                campos[81] = cli.fechaGestion.toString()
+                campos[82] = cli.aceptaCambioProducto
                 ExcelUtils.addCells(campos, sheet, i + 1, Colour.WHITE, Alignment.LEFT, VerticalAlignment.CENTRE, null, null, null)
             }
             workbook.write()

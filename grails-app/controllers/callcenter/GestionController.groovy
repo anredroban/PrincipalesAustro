@@ -216,6 +216,8 @@ class GestionController {
 			cliente.estadoCivil = params.estadoCivil
 			cliente.nivelEstudios = params.nivelEstudios
 			cliente.profesion = params.profesion
+			cliente.cargo = params.cargo
+			cliente.ocupacion = params.ocupacion
 			cliente.origenIngresos = params.origenIngresos
 			cliente.rangoIngresos = params.rangoIngresos
 			cliente.patrimonio = params.patrimonio

@@ -30,13 +30,6 @@ class Clientes {
 	String telefono8
 	String telefono9
 	String telefono10
-	String telefono11
-	String telefono12
-	String telefono13
-	String telefono14
-	String telefono15
-	String telefono16
-	String telefono17
 
 	//Datos que recoge el asesor
 	String cedulaVerificada
@@ -136,6 +129,8 @@ class Clientes {
 	String aceptaCambioProducto
 	String telefonoContactado
 	String tipoMarca
+	String cargo
+	String ocupacion
 
 
 
@@ -236,13 +231,6 @@ class Clientes {
 		telefono8 nullable: true
 		telefono9 nullable: true
 		telefono10 nullable: true
-		telefono11 nullable: true
-		telefono12 nullable: true
-		telefono13 nullable: true
-		telefono14 nullable: true
-		telefono15 nullable: true
-		telefono16 nullable: true
-		telefono17 nullable: true
 
 		cedulaVerificada nullable: true
 		nombreVerificado nullable: true
@@ -406,6 +394,8 @@ class Clientes {
 		montoIngresoMensualTotal nullable: true
 		montoEgresoMensualTotal nullable: true
 		cierre_ciclo nullable: true
+		cargo nullable: true
+		ocupacion nullable: true
 
 	}
 	

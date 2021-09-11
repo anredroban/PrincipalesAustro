@@ -805,6 +805,16 @@
                             <span class="required-indicator"> *</span>
                             <g:select name="profesion" class="form-control" optionKey="codigo" optionValue="nombre" from="${callcenter.Profesion.findAllByIsActive(true)}" noSelection="${['': '-- Seleccione --']}"/>
                         </div>
+						<div class="col-lg-4 col-md-6 col-xs-12 form-group">
+							<label>Cargo</label>
+							<span class="required-indicator"> *</span>
+							<g:select name="cargo" class="form-control" optionKey="codigo" optionValue="nombre" from="${callcenter.Cargo.findAllByIsActive(true)}" noSelection="${['': '-- Seleccione --']}"/>
+						</div>
+						<div class="col-lg-4 col-md-6 col-xs-12 form-group">
+							<label>Ocupación</label>
+							<span class="required-indicator"> *</span>
+							<g:select name="ocupacion" class="form-control" optionKey="codigo" optionValue="nombre" from="${callcenter.Ocupacion.findAllByIsActive(true)}" noSelection="${['': '-- Seleccione --']}"/>
+						</div>
                         <div class="col-lg-4 col-md-6 col-xs-12 form-group">
                             <label>Cargas Familiares</label>
                             <span class="required-indicator"> *</span>
